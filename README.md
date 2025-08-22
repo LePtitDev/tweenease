@@ -6,7 +6,7 @@ Standalone C# library to make animations with tweens.
 
 ## How to use
 
-```chsarp
+```csharp
 public class MyClass
 {
     public double X { get; set; }
