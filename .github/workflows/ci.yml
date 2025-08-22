@@ -10,7 +10,7 @@ on:
       - '*'
 
 env:
-  CI_DOTNET_VERSION: 6.0.x
+  CI_DOTNET_VERSION: 9.0.x
   CI_NUGET_OUTPUT: ${{ github.workspace }}/nuget
 
 jobs:
