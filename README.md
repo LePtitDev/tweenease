@@ -1,6 +1,6 @@
 # tweenease
 
-[![](https://img.shields.io/github/license/LePtitDev/tweenease)](https://github.com/LePtitDev/tweenease/blob/main/LICENSE) [![](https://github.com/LePtitDev/tweenease/actions/workflows/ci.yml/badge.svg)](https://github.com/LePtitDev/tweenease/actions)
+[![](https://img.shields.io/nuget/v/tweenease.svg)](https://www.nuget.org/packages/tweenease/) [![](https://img.shields.io/github/license/LePtitDev/tweenease)](https://github.com/LePtitDev/tweenease/blob/main/LICENSE) [![](https://github.com/LePtitDev/tweenease/actions/workflows/ci.yml/badge.svg)](https://github.com/LePtitDev/tweenease/actions)
 
 Standalone C# library to make animations with tweens.
 
