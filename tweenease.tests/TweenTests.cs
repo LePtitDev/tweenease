@@ -51,10 +51,36 @@ public class TweenTests
         Assert.That(state.X, Is.EqualTo(12).Within(0.5));
     }
 
+    [Test]
+    public void Test_03()
+    {
+        var state = new TestState { X = 8 };
+        var context = Tween.Sequence(
+            Tween.Property<TestState, string>(s => s.Str)
+                .To("my text.", TimeSpan.FromSeconds(3))
+                .To("", TimeSpan.FromSeconds(3)))
+            .Build()
+            .CreateTestContext(state);
+
+        context.Start();
+
+        context.Time += TimeSpan.FromSeconds(3);
+        context.Update();
+
+        Assert.That(state.Str, Is.EqualTo("my text."));
+
+        context.Time += TimeSpan.FromSeconds(3);
+        context.Update();
+
+        Assert.That(state.Str, Is.EqualTo(""));
+    }
+
     private class TestState
     {
         public double X { get; set; }
 
         public double Y { get; set; }
+
+        public string Str { get; set; } = "";
     }
 }

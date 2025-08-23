@@ -11,7 +11,16 @@ public class TweenStateContext
 
     public TimeSpan Time { get; set; }
 
-    public object? InitialState { get; set; }
+    public object? InitialState { get; private set; }
 
-    public object? TransitionTarget { get; set; }
+    public object? TransitionTarget { get; private set; }
+
+    public bool Initialized { get; private set; }
+
+    public void Initialize(object? initialState, object? transitionTarget)
+    {
+        InitialState = initialState;
+        TransitionTarget = transitionTarget;
+        Initialized = true;
+    }
 }
