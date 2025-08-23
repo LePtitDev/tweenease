@@ -4,5 +4,5 @@ public interface ITweenTransition
 {
     public object? GetSourceValue();
 
-    public object GetTargetValue(object initialValue);
+    public object? GetTargetValue(object? initialValue);
 }

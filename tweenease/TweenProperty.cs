@@ -14,13 +14,13 @@ public abstract class TweenProperty : ITweenProperty
     public abstract void Set(object? target, object? value);
 }
 
-public abstract class TweenProperty<T> : ITweenProperty where T : notnull
+public abstract class TweenProperty<T> : ITweenProperty
 {
     Type ITweenProperty.Type => typeof(T);
 
-    public abstract T Get(object? target);
+    public abstract T? Get(object? target);
 
-    public abstract void Set(object? target, T value);
+    public abstract void Set(object? target, T? value);
 
     object? ITweenProperty.Get(object? target) => Get(target);
 

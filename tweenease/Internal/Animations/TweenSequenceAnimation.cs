@@ -21,7 +21,7 @@ internal class TweenSequenceAnimation : ITweenAnimation
             throw new InvalidOperationException("No animation added in the sequence");
 
         var sequenceContext = new SequenceContext(context.Target);
-        context.InitialState = sequenceContext;
+        context.Initialize(sequenceContext, null);
         _animations[0].SetUp(sequenceContext);
     }
 

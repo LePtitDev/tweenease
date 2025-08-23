@@ -26,14 +26,24 @@ internal class TweenPropertyAnimation : ITweenAnimation
 
     public void SetUp(TweenStateContext context)
     {
-        context.InitialState = Transition.GetSourceValue() ?? Property.Get(context.Target) ?? throw new NotSupportedException("Null value is not supported");
-        context.TransitionTarget = Transition.GetTargetValue(context.InitialState) ?? throw new NotSupportedException("Null value is not supported");
+        var initialState = Transition.GetSourceValue() ?? Property.Get(context.Target);
+        if (initialState is null && Property.Type.IsValueType)
+            throw new NotSupportedException("Null value is not supported");
+
+        object? transitionTarget = Transition.GetTargetValue(initialState);
+        if (transitionTarget is null && Property.Type.IsValueType)
+            throw new NotSupportedException("Null value is not supported");
+
+        context.Initialize(initialState, transitionTarget);
     }
 
     public void Update(TweenStateContext context)
     {
-        var initialValue = context.InitialState ?? throw new InvalidOperationException("Tween context must be set up");
-        var transition = context.TransitionTarget ?? throw new InvalidOperationException("Tween context must be set up");
+        if (!context.Initialized)
+            throw new InvalidOperationException("Tween context must be set up");
+
+        var initialValue = context.InitialState;
+        var transition = context.TransitionTarget;
 
         var delta = Math.Clamp(context.Time / Duration, 0, 1);
         if (Easing is not null)

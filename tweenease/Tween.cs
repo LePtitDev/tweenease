@@ -16,11 +16,10 @@ public static class Tween
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static PropertyBuilder<TValue> Property<TTarget, TValue>(Expression<Func<TTarget, TValue>> expression)
+    public static PropertyBuilder<TValue> Property<TTarget, TValue>(Expression<Func<TTarget, TValue?>> expression)
         where TTarget : class
-        where TValue : struct
     {
-        var property = new TweenExpressionProperty<TTarget, TValue>(expression);
+        var property = new TweenExpressionProperty<TTarget, TValue?>(expression);
         return new PropertyBuilder<TValue>(property);
     }
 
@@ -41,7 +40,6 @@ public static class Tween
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static PropertyBuilder<TValue> Property<TTarget, TValue>(Func<TTarget, TValue> getter, Action<TTarget, TValue> setter)
         where TTarget : class
-        where TValue : struct
     {
         var property = new TweenDelegateProperty(
             typeof(TValue),
@@ -59,11 +57,10 @@ public static class Tween
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static PropertyBuilder<TValue> Property<TTarget, TValue>(Func<TValue> getter, Action<TValue> setter)
-        where TValue : struct
     {
         var property = new TweenDelegateProperty(
             typeof(TValue),
-            () => (object?)getter(),
+            () => getter(),
             (object? o) =>
             {
                 if (o is TValue val)
@@ -179,7 +176,7 @@ public static class Tween
         }
     }
 
-    public class PropertyBuilder<T> : PropertyBuilderBase where T : struct
+    public class PropertyBuilder<T> : PropertyBuilderBase
     {
         private readonly List<(T Val, TimeSpan Duration, Func<double, double>? Easing)> _values = new();
         private T? _initialValue;

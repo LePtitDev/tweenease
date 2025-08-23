@@ -31,7 +31,7 @@ internal class TweenParallelAnimation : ITweenAnimation
             _animations[i].SetUp(subContext);
         }
 
-        context.InitialState = contexts;
+        context.Initialize(contexts, null);
     }
 
     public void Update(TweenStateContext context)
