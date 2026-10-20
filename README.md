@@ -2,6 +2,9 @@
 
 [![](https://img.shields.io/nuget/v/tweenease.svg)](https://www.nuget.org/packages/tweenease/) [![](https://img.shields.io/github/license/LePtitDev/tweenease)](https://github.com/LePtitDev/tweenease/blob/main/LICENSE) [![](https://github.com/LePtitDev/tweenease/actions/workflows/ci.yml/badge.svg)](https://github.com/LePtitDev/tweenease/actions)
 
+> [!WARNING]
+> **This project has moved.** It is now part of the [Sight](https://github.com/LePtitDev/Sight) repository as [`Sight.Tweening`](https://github.com/LePtitDev/Sight/tree/main/src/Sight.Tweening) ([NuGet](https://www.nuget.org/packages/Sight.Tweening/)). The types are unchanged, only the namespace is now `Sight.Tweening`. This repository is no longer maintained.
+
 Standalone C# library to make animations with tweens.
 
 - Targets .NET 8, 9, 10 and .NET Standard 2.1 (Unity, Godot, Xamarin...), no dependency
