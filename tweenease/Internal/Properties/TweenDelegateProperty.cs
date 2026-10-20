@@ -1,4 +1,4 @@
-﻿namespace tweenease.Internal.Properties;
+namespace tweenease.Internal.Properties;
 
 internal class TweenDelegateProperty : TweenProperty
 {
@@ -9,7 +9,7 @@ internal class TweenDelegateProperty : TweenProperty
         : this(type, _ => getter(), (_, v) => setter(v))
     {
     }
-    
+
     public TweenDelegateProperty(Type type, Func<object?, object?> getter, Action<object?, object?> setter)
         : base(type)
     {

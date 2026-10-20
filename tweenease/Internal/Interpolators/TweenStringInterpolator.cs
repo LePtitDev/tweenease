@@ -1,4 +1,4 @@
-﻿namespace tweenease.Internal.Interpolators;
+namespace tweenease.Internal.Interpolators;
 
 internal class TweenStringInterpolator : TweenInterpolator<string>
 {

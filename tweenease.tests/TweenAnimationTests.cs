@@ -1,4 +1,4 @@
-﻿using tweenease.Internal.Animations;
+using tweenease.Internal.Animations;
 using tweenease.Internal.Properties;
 
 namespace tweenease.tests;
